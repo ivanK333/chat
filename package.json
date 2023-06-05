@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.3.9"
+    "postcss": "8.4.24",
+    "vite": "4.3.9"
   },
   "dependencies": {
-    "vite-plugin-handlebars": "^1.6.0"
+    "handlebars": "4.7.7"
   }
 }
