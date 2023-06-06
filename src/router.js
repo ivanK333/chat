@@ -4,9 +4,6 @@ const router = async () => {
 
   const content = await document.getElementById('root');
 
-  const MainPages = new Main();
-
-
   content.innerHTML = new Main().render();
 }
 

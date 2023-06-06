@@ -1,8 +1,7 @@
-import Handlebars from 'handlebars/dist/cjs/handlebars';
 import javascriptLogo from '../../../static/img/javascript.svg'
 import viteLogo from '../../../static/img/vite.svg'
-import { template } from '.';
-import styles from './styles.module.css';
+import template from './Main.hbs';
+import styles from './styles.module.pcss';
 
 export class Main {
   constructor() {
@@ -18,7 +17,7 @@ export class Main {
   }
 
   render() {
-    return Handlebars.compile(template)(this.props);
+    return template({...this.props});
   }
 }
 
