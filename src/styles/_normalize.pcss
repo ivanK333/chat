@@ -1,4 +1,4 @@
-@import "./_variables.pcss";
+@import "_variables.pcss";
 
 *,
 ::after,
@@ -6,12 +6,22 @@
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+div[id="root"] {
   margin: 0;
   padding: 0;
+  border: 0;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+body {
   background-color: $color-bg-1;
   color: $color-text-primary;
-  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 h1,
@@ -44,7 +54,6 @@ a {
 }
 
 button {
-  background: transparent;
   box-shadow: none;
   cursor: pointer;
 }

@@ -13,7 +13,7 @@ export class Input  {
       ...props
     } = this.props;
 
-    const compiledTemplate = template({
+    return template({
       ...props,
       type,
       className: `${styles.container} ${className}`,
@@ -22,7 +22,5 @@ export class Input  {
       classNameInput: `${styles.input} ${error ? styles.errorInput : ''}`,
       error,
     });
-
-    return compiledTemplate;
   }
 }

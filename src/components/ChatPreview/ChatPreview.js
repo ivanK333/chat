@@ -1,22 +1,21 @@
-import template from './Button.hbs';
+import template from './ChatPreview.hbs';
 import styles from './styles.module.pcss';
 
-export class Button {
+export class ChatPreview {
   constructor(props) {
     this.props = props;
   }
   render() {
     const {
-      view = 'default',
-      type = 'button',
       className = '',
       ...props
     } = this.props;
 
-    return template({
+    const compiledTemplate = template({
       ...props,
-      type,
-      className: `${styles.button} ${styles[view]} ${className}`,
+      className: `${styles.container} ${className}`,
     });
+
+    return compiledTemplate;
   }
 }

@@ -4,6 +4,7 @@ import path from 'path';
 
 const app = express();
 const PORT = 3000;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -14,5 +15,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, function () {
-  console.log(`Example app listening on port ${PORT} ${import.meta.url}!`);
+  console.log(`Example app listening on port ${PORT}}!`);
 });

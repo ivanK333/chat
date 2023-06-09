@@ -1,22 +1,20 @@
-import template from './Button.hbs';
+import template from './Link.hbs';
 import styles from './styles.module.pcss';
 
-export class Button {
+export class Link {
   constructor(props) {
     this.props = props;
   }
   render() {
     const {
-      view = 'default',
-      type = 'button',
+      color = 'blue',
       className = '',
       ...props
     } = this.props;
 
     return template({
       ...props,
-      type,
-      className: `${styles.button} ${styles[view]} ${className}`,
+      className: `${styles.link} ${styles[color]} ${className}`,
     });
   }
 }

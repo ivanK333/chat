@@ -1,8 +1,9 @@
-@import "../../../static/styles/_mixins.pcss";
-@import "../../../static/styles/_variables.pcss";
+@import "../../styles/_mixins.pcss";
+@import "../../styles/_variables.pcss";
 
 .container {
     position: relative;
+    width: 100%;
 }
 
 .placeholder {
@@ -52,4 +53,8 @@
 
 .text {
     @mixin typography-text-m;
+
+    &.errorText {
+        color: $color-text-error;
+    }
 }
