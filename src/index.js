@@ -1,26 +1,11 @@
-import { SignUp, SignIn, Profile, ChangePassword } from './pages'
-import { routes } from './appConstants'
+import { Main } from './layouts'
+import { router } from './router'
 
-const getPage = () => {
-  switch (window.location.pathname) {
-    case routes.signIn:
-      return new SignIn().render();
-    case routes.signUp:
-      return new SignUp().render();
-    case routes.profile:
-      return new Profile().render();
-    case routes.changePassword:
-      return new ChangePassword().render();
+document.addEventListener('DOMContentLoaded', () => {
+  const content = document.getElementById('root');
 
-    default:
-      return window.location.replace(routes.signIn)
-  }
-}
-const router = async () => {
-  const content = await document.getElementById('root');
-
-  content.innerHTML = getPage();
-}
+  content.innerHTML = new Main({ children: router() }).render();
+})
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);

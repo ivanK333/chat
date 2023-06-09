@@ -1,13 +1,14 @@
-import template from './Profile.hbs';
-import styles from './styles.module.pcss';
 import {
   Input,
   Button,
   Link,
   Card,
   AvatarUpload,
+  ButtonBack,
 } from "../../components";
-import { routes } from "../../appConstants";
+import { ROUTES } from "../../appConstants";
+import { Slide } from "../../layouts";
+import styles from './styles.module.pcss';
 
 export class Profile {
   constructor() {
@@ -51,19 +52,20 @@ export class Profile {
       }).render(),
       changeData: new Button({
         view: 'default',
-        text: 'Change data',
+        children: 'Change data',
         name: 'change_data',
       }).render(),
       changePassword: new Link({
-        text: 'Change password',
+        children: 'Change password',
         href: '#',
       }).render(),
       logOut: new Link({
-        text: 'Log out',
+        children: 'Log out',
         color: 'red',
-        href: routes.signIn,
+        href: ROUTES.signIn,
       }).render(),
     }
+    this.buttonBack = new ButtonBack({}).render();
   }
 
   render() {
@@ -80,7 +82,14 @@ export class Profile {
     ${this.content.logOut}
     `
 
-    return template({ className: styles.container, card: new Card({ children: content, classNameForm: styles.card }).render()});
+    return new Slide({
+      children: new Card({
+        children: content,
+        classNameForm: styles.card,
+        buttonBack: this.buttonBack,
+      }).render(),
+      buttonBack: this.buttonBack,
+    }).render();
   }
 }
 

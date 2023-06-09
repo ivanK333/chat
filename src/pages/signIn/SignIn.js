@@ -1,4 +1,3 @@
-import template from './SignIn.hbs';
 import styles from './styles.module.pcss';
 import {
   Input,
@@ -6,7 +5,8 @@ import {
   Link,
   Card,
 } from "../../components";
-import { routes } from "../../appConstants";
+import { ROUTES } from "../../appConstants";
+import { Slide } from "../../layouts";
 
 export class SignIn {
   constructor() {
@@ -26,13 +26,13 @@ export class SignIn {
       signIn: new Button({
         type: 'submit',
         view: 'default',
-        text: 'Sign in',
+        children: 'Sign in',
         name: 'sign_in',
         className: styles.signIn,
       }).render(),
       signUp: new Link({
-        text: 'Sign up',
-        href: routes.signUp,
+        children: 'Sign up',
+        href: ROUTES.signUp,
       }).render(),
     }
   }
@@ -45,7 +45,12 @@ export class SignIn {
     ${this.content.signUp}
     `
 
-    return template({ className: styles.container, card: new Card({ children: content, title: "Sign in" }).render()});
+    return new Slide({
+      children: new Card({
+        children: content,
+        title: "Sign in",
+      }).render(),
+    }).render();
   }
 }
 

@@ -1,10 +1,11 @@
-import template from './ChangePassword.hbs';
 import styles from './styles.module.pcss';
 import {
   Input,
   Button,
   Card,
+  ButtonBack,
 } from "../../components";
+import { Slide } from '../../layouts'
 
 export class ChangePassword {
   constructor() {
@@ -23,10 +24,11 @@ export class ChangePassword {
       }).render(),
       save: new Button({
         view: 'default',
-        text: 'Save',
+        children: 'Save',
         name: 'save',
       }).render(),
-    }
+    };
+    this.buttonBack = new ButtonBack({}).render();
   }
 
   render() {
@@ -37,14 +39,14 @@ export class ChangePassword {
     ${this.content.save}
     `
 
-    return template({
-      className: styles.container,
-      card: new Card({
+    return new Slide({
+      children: new Card({
         children: content,
         classNameForm: styles.card,
         title: 'Change password',
-      }).render()
-    });
+      }).render(),
+      buttonBack: this.buttonBack,
+    }).render();
   }
 }
 

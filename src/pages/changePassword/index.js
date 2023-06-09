@@ -1,1 +1,1 @@
-export { ChangePassword } from './ChangePassword.js';
+export { ChangePassword } from './ChangePassword';
