@@ -1,12 +1,39 @@
-import { Main } from './pages'
+import { ROUTES } from "./appConstants";
+import {
+  ChangePassword,
+  Profile,
+  SignIn,
+  SignUp,
+  CreateChat,
+  InfoChat,
+  Chat,
+  NotFound,
+  InternalError,
+} from "./pages";
 
-const router = async () => {
+export const router = () => {
+  switch (window.location.pathname) {
+    case ROUTES.signIn:
+      return new SignIn().render();
+    case ROUTES.signUp:
+      return new SignUp().render();
+    case ROUTES.profile:
+      return new Profile().render();
+    case ROUTES.changePassword:
+      return new ChangePassword().render();
+    case ROUTES.createChat:
+      return new CreateChat().render();
+    case ROUTES.infoChat:
+      return new InfoChat().render();
+    case ROUTES.chat:
+      return new Chat().render();
+    case ROUTES.notFound:
+      return new NotFound().render();
+    case ROUTES.internalError:
+      return new InternalError().render();
 
-  const content = await document.getElementById('root');
-
-  content.innerHTML = new Main().render();
-}
-
-window.addEventListener('hashchange', router);
-
-window.addEventListener('load', router);
+    default:
+      window.location.replace(ROUTES.signIn);
+      return null;
+  }
+};

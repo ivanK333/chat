@@ -13,11 +13,10 @@ export class Button {
       ...props
     } = this.props;
 
-    const compiledTemplate = template({
+    return template({
       ...props,
+      type,
       className: `${styles.button} ${styles[view]} ${className}`,
     });
-
-    return compiledTemplate;
   }
 }
