@@ -24,7 +24,7 @@ export class HeaderSidebar {
       classNameName: styles.name,
       avatar: new Avatar({}).render(),
       img: newChat,
-      search: new InputChat({ img: search }).render(),
+      search: new InputChat({ img: search, name: 'search' }).render(),
     });
   }
 }
