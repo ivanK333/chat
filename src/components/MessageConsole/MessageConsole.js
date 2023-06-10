@@ -18,7 +18,11 @@ export class MessageConsole {
       ...props,
       className: `${styles.messageConsole} ${className}`,
       classNameImg: styles.img,
-      input: new InputChat({ placeholder: 'Message', className: styles.input }).render(),
+      input: new InputChat({
+        placeholder: 'Message',
+        className: styles.input,
+        name: 'message',
+      }).render(),
       img: staple,
       button: new ButtonSend({}).render(),
     });
